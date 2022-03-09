@@ -7,6 +7,8 @@ cam_name = "realsense_d435"
 img_dir = f"{cam_name}_imgs"
 
 def main():
+    cv2.namedWindow("Frame", cv2.WINDOW_NORMAL)
+
     directory = os.getcwd()
 
     if not directory.endswith("cam_calibration"):
