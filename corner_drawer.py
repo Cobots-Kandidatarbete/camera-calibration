@@ -1,4 +1,3 @@
-from tkinter import image_names
 import cv2
 
 cam_name = "realsense_d435"
