@@ -21,8 +21,8 @@ def get_folder_size(dir):
 def get_test_image():
     directory = os.getcwd()
 
-    if not directory.endswith("cam_calibration"):
-        raise ImportError("Current directory is not named 'cam_calibration'. Script is most likely run from wrong root.")
+    if not directory.endswith("camera-calibration"):
+        raise ImportError("Current directory is not named 'camera-calibration'. Script is most likely run from wrong root.")
 
     if not img_dir in os.listdir():
         raise ImportError(f"{img_dir} does not exist.")
@@ -93,12 +93,13 @@ def get_calibration_matrix(display=False, undistort_test=False, save_file=False)
             os.mkdir(config_dir)
             print(f"Created {config_dir}")
 
-            config_path = f"{config_dir}/{config_name}.yaml"
-            config_file = cv2.FileStorage(config_path, cv2.FILE_STORAGE_WRITE)
-            config_file.write('camera_matrix', camera_matrix)
-            config_file.write('distortion_matrix', distortion_matrix)
-            config_file.write('optimal_camera_matrix', optimal_camera_matrix)
-            config_file.release()
+        config_path = f"{config_dir}/{config_name}.yaml"
+        config_file = cv2.FileStorage(config_path, cv2.FILE_STORAGE_WRITE)
+        config_file.write('camera_matrix', camera_matrix)
+        config_file.write('distortion_matrix', distortion_matrix)
+        config_file.write('optimal_camera_matrix', optimal_camera_matrix)
+        config_file.write('image_size', img_size[::-1])
+        config_file.release()
 
 
     cv2.destroyAllWindows()

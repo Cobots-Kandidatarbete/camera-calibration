@@ -19,3 +19,8 @@ optimal_camera_matrix: !!opencv-matrix
    dt: d
    data: [ 5.4720977783203125e+02, 0., 3.1561585115308844e+02, 0.,
        5.8859747314453125e+02, 2.3119098544249027e+02, 0., 0., 1. ]
+image_size: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: d
+   data: [ 640., 480. ]
